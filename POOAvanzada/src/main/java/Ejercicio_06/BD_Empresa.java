@@ -11,43 +11,58 @@ import java.util.ArrayList;
  * @author joseramon.romera
  */
 public class BD_Empresa {
-    
-    private ArrayList<Vehiculo> listaVehiculos = new ArrayList();
-    private ArrayList<Alquiler> listaAlquileres =  new ArrayList();
-    
-    
-    
-    
-    public void añadirVehiculo(Vehiculo v){
-        
-        
+
+    private static ArrayList<Vehiculo> listaVehiculos = new ArrayList();
+    private static ArrayList<Alquiler> listaAlquileres = new ArrayList();
+
+    public static void añadirVehiculo(Vehiculo v) {
+        listaVehiculos.add(v);
+
     }
-    
-    public void añadirAlquiler(Alquiler alquiler){
-        
+
+    public static void añadirAlquiler(Alquiler alquiler) {
+        listaAlquileres.add(alquiler);
     }
-    
-    public void listaFlota(){
-        
+
+    public static void listarFlota() {
+
+        System.out.println("=============================");
+        System.out.println("     LISTADO DE TURISMOS     ");
+        for (Vehiculo v : listaVehiculos) {
+            if (v instanceof Turismo) {
+                System.out.println(v.toString());
+            }
+        }  
+        System.out.println("\n     LISTADO DE FURGONETAS     ");    
+        for (Vehiculo v : listaVehiculos) {
+            if (v instanceof Furgoneta) {
+                System.out.println(v.toString());
+            }
+        }
+        System.out.println("=============================");
+        System.out.println("");
+
     }
-    
-    public Vehiculo obtenerVehiculo(String matricula){
-        Vehiculo v;
-        
-        
+
+    public static Vehiculo obtenerVehiculo(String matricula) {
+        Vehiculo v = null;
+        for(Vehiculo v1: listaVehiculos){
+            if (v1.getMatricula().equals(matricula)){
+                v = v1;
+            }
+        }
+
         return v;
     }
-    
-    public Alquiler obtenerUltimoAlquiler(String matricula){
+
+    public static Alquiler obtenerUltimoAlquiler(String matricula) {
         Alquiler alquiler;
-        
-        return alquiler;
+
+        return null;
     }
-    
-    public void imprimirHistoricoAlquileres(){
-        
-        
+
+    public static void imprimirHistoricoAlquileres() {
+
     }
-    
-    
+
 }

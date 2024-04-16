@@ -21,10 +21,29 @@ public class Alquiler {
 
     public Alquiler(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
+        this.km_inicio = vehiculo.km;
+        this.km_fin = vehiculo.km;
+        this.fecha_inicio = null;
+        this.fecha_fin = null;
+        this.importe = 0;
+        
     }
 
     
+    public double calcularImporte(){
+        double aux = 0;
+        if (vehiculo instanceof Furgoneta){
+            aux = vehiculo.
+    }
+        
+        return aux;
+    }
     
+    
+    public void imprimir(){
+        
+        
+    }
     
     
     

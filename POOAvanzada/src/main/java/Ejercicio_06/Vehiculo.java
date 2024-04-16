@@ -25,6 +25,16 @@ public abstract class Vehiculo {
 
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setAlquilado(boolean alquilado) {
+        this.alquilado = alquilado;
+    }
+
+    
+    
     public abstract void alquilar(LocalDate fecha_alquiler, int km);
 
     public abstract void devolver(LocalDate fecha_devolucion, int km);
