@@ -12,28 +12,28 @@ class PuntoAcceso:
     def __init__(self, ssid: str, contraseña: str) -> None:
         self.__ssid = ssid
         self.__contraseña = contraseña
-        self.__esta_contarfuegos_activado: bool = False
+        self.__esta_cortafuegos_activado: bool = False
         self.__equipos_conectados: list[str] = []
         self.__tipo_filtrado: TipoFiltrado = TipoFiltrado.LISTA_BLANCA
         self.__equipos_filtrados: list[str] = []
 
 
-    @property ##getter ssid
+    @property ##getter ssid-
     def ssid(self) -> str:
         return self.__ssid
 
 
-    @property ##getter contraseña
+    @property ##getter contraseña-
     def contraseña(self) -> str:
         return self.__contraseña
     
 
-    @ssid.setter ##setter ssid
+    @ssid.setter ##setter ssid-
     def ssid(self, valor: str) -> None:
         self.__ssid = valor
 
 
-    @contraseña.setter ##setter contraseña
+    @contraseña.setter ##setter contraseña-
     def contraseña(self, valor: str) -> None:
         self.__contraseña = valor
 
@@ -45,7 +45,7 @@ class PuntoAcceso:
 
     @property ##getter esta_cortafuegos_activado
     def esta_cortafuegos_activado(self) -> bool:
-        return self.__esta_contarfuegos_activado
+        return self.__esta_cortafuegos_activado
 
 
     @property ##getter tipo_filtrado
@@ -63,16 +63,38 @@ class PuntoAcceso:
         return self.__equipos_filtrados
 
 
-    def añadirEquipo(self, direccion_equipo: str) -> None:
-        self.__equipos_conectados.append(direccion_equipo)
+    def conectar_equipo(self, direccion_equipo: str, contraseña: str) -> None:
+        if self.esta_cortafuegos_activado:
+            if self.tipo_filtrado == TipoFiltrado.LISTA_BLANCA:
+                self.equipos_filtrados.
+
+
+                ## HACER EN CASA BIEN
+
+                 ## HACER EN CASA BIEN
+                  ## HACER EN CASA BIEN
+                   ## HACER EN CASA BIEN
+        
+        
+        if contraseña == self.contraseña:
+            self.__equipos_conectados.append(direccion_equipo)
+        else: 
+            raise PuntoAccesoError ('La contraseña no es correcta.')
+
+
+
+    
+
+    def desconectar_equipo(self, direccion_equipo: str) -> None:
+        self.__equipos_conectados.remove(direccion_equipo)
 
 
     def activar_cortafuegos(self) -> None:
-        self.__esta_contarfuegos_activado = True
+        self.__esta_cortafuegos_activado = True
 
     
     def desactivar_cortafuegos(self) -> None:
-        self.__esta_contarfuegos_activado = False
+        self.__esta_cortafuegos_activado = False
 
 
     def agregar_equipo_filtrado(self, equipo: str) -> None:
